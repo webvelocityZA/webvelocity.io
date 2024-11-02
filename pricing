@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design Pricing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .pricing-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        .pricing-card h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .more-info {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Website Design Pricing</h1>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h2>3 Page Custom Website</h2>
+            <p class="price">R8,980.00</p>
+            <ul>
+                <li>1 x Custom Design To Choose From</li>
+                <li>2 x Free Design Revision Rounds</li>
+                <li>2 x Free Content Revision Rounds</li>
+                <li>3 x Static Pages</li>
+                <li>Fully Mobile Responsive</li>
+                <li>Google Friendly (SEO)</li>
+                <li>Enquiry Form</li>
+                <li>Google Map</li>
+                <li>Moving Banner</li>
+                <li>Pop Up Image Gallery</li>
+                <li>Video Gallery</li>
+                <li>WhatsApp Quick Chat</li>
+                <li>Social Media Buttons</li>
+                <li>Basic SEO & Google Index</li>
+                <li>Manage Own Content</li>
+                <li>Website Editing Training</li>
+                <li>Standard Scroll Animations</li>
+            </ul>
+            <a href="#" class="more-info">More Info Here</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>6 Page Custom Website</h2>
+            <p class="price">R14,780.00</p>
+            <ul>
+                <li>2 x Custom Designs To Choose From</li>
+                <li>2 x Free Design Revision Rounds</li>
+                <li>2 x Free Content Revision Rounds</li>
+                <li>6 x Static Pages</li>
+                <li>Fully Mobile Responsive</li>
+                <li>Google Friendly (SEO)</li>
+                <li>Enquiry Form</li>
+                <li>Google Map</li>
+                <li>Moving Banner</li>
+                <li>Pop Up Image Gallery</li>
+                <li>Video Gallery</li>
+                <li>Interactive Blog</li>
+                <li>Social Media Integration</li>
+                <li>WhatsApp Quick Chat</li>
+                <li>Social Media Buttons</li>
+                <li>Basic SEO & Google Index</li>
+                <li>Manage Own Content</li>
+                <li>Website Editing Training</li>
+                <li>Standard Scroll Animations</li>
+            </ul>
+            <a href="#" class="more-info">More Info Here</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>9 Page Custom Website</h2>
+            <p class="price">R17,420.00</p>
+            <ul>
+                <li>2 x Custom Designs To Choose From</li>
+                <li>2 x Free Design Revision Rounds</li>
+                <li>2 x Free Content Revision Rounds</li>
+                <li>9 x Static Pages</li>
+                <li>Fully Mobile Responsive</li>
+                <li>Google Friendly (SEO)</li>
+                <li>Enquiry Form</li>
+                <li>Google Map</li>
+                <li>Moving Banner</li>
+                <li>Pop Up Image Gallery</li>
+                <li>Video Gallery</li>
+                <li>Interactive Blog</li>
+                <li>Social Media Integration</li>
+                <li>Mailchimp Newsletter Integration</li>
+                <li>WhatsApp Quick Chat</li>
+                <li>Social Media Buttons</li>
+                <li>Basic SEO & Google Index</li>
+                <li>Manage Own Content</li>
+                <li>Website Editing Training</li>
+                <li>Standard Scroll Animations</li>
+            </ul>
+            <a href="#" class="more-info">More Info Here</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>Catalog Website</h2>
+            <p class="price">R19,780.00</p>
+            <ul>
+                <li>Perfect to display products without interaction</li>
+                <li>Includes Enquiry Form per Product</li>
+                <li>Custom Designed Template</li>
+                <li>2 x Designs To Choose From</li>
+                <li>2 x Free Design Revision Rounds</li>
+                <li>2 x Free Content Revision Rounds</li>
+                <li>Google Friendly (SEO)</li>
+                <li>Fully Mobile Responsive</li>
+                <li>Moving Product Banner</li>
+                <li>Product Categories</li>
+                <li>9 x Products Preloaded Free</li>
+                <li>Add Unlimited Products</li>
+                <li>Product Image & Video Gallery</li>
+                <li>PDF Downloads</li>
+                <li>WhatsApp Quick Chat System</li>
+                <li>Mail Chimp Newsletter Integration</li>
+                <li>Catalog Content Update Training</li>
+                <li>Interactive Blog</li>
+                <li>3 x Static Content Pages</li>
+                <li>Includes T/C Page</li>
+                <li>Social Media Sharing</li>
+                <li>Standard Scroll Animations</li>
+            </ul>
+            <a href="#" class="more-info">More Info Here</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>Catalog Website With Quote Basket</h2>
+            <p class="price">R21,590.00</p>
+            <ul>
+                <li>Product Quotation Basket System</li>
+                <li>Book products out like eCommerce without Payment Portal</li>
+                <li>Custom Designed Template</li>
+                <li>2 x Designs To Choose From</li>
+                <li>2 x Free Design Revision Rounds</li>
+                <li>2 x Free Content Revision Rounds</li>
+                <li>Google Friendly (SEO)</li>
+                <li>Fully Mobile Responsive</li>
+                <li>Moving Product Banner</li>
+                <li>Add Products to Quote Basket</li>
+                <li>Product Categories</li>
+                <li>9 x Products Preloaded Free</li>
+                <li>Add Unlimited Products</li>
+                <li>Product Image & Video Gallery</li>
+                <li>PDF Downloads</li>
+                <li>WhatsApp Quick Chat System</li>
+                <li>Mail Chimp Newsletter Integration</li>
+                <li>Catalog Content Update Training</li>
+                <li>Interactive Blog</li>
+                <li>3 x Static Content Pages</li>
+                <li>Extra T/C Page</li>
+                <li>Social Media Sharing</li>
+                <li>Standard Scroll Animations</li>
+            </ul>
+            <a href="#" class="more-info">More Info Here</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>E-Commerce Website</h2>
+            <p class="price">R23,690.00</p>
+            <ul>
+                <li>Stand Alone Online Shop</li>
+                <li>Product Basket / Checkout System</li>
+                <li>Custom Designed Template</li>
+                <li>2 x Designs To Choose From</li>
+                <li>2 x Free Design Revision Rounds</li>
+                <li>2 x Free Content Revision Rounds</li>
+                <li>Google Friendly (SEO)</li>
+                <li>Fully Mobile Responsive</li>
+                <li>Moving Product Banner</li>
+                <li>Full E-commerce Functions</li>
+                <li>Product Categories</li>
+                <li>9 x Products Preloaded Free</li>
+                <li>Add Unlimited Products</li>
+                <li>Electronic Payments</li>
+                <li>Sales Reports</li>
+                <li>Discount Coupon System</li>
+                <li>PDF Downloads</li>
+                <li>Product Image & Video Gallery</li>
+                <li>Mail Chimp Integration</li>
+                <li>Manage Shop Training</li>
+                <li>Interactive Blog</li>
+                <li>3 x Static Pages</li>
+                <li>Extra T/C Page</li>
+                <li>Social Media Sharing</li>
+                <li>WhatsApp Quick Chat System</li>
+                <li>Standard Scroll Animations</li>
+            </ul>
+            <a href="#" class="more-info">More Info Here</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>System / Custom Website Design</h2>
+            <p class="price">Starting at R27,980.00</p>
+            <ul>
+                <li>Any Custom Website</li>
+                <li>Quote System Website</li>
+                <li>LMS Website</li>
+                <li>Events RSVP Website</li>
+                <li>Item/Product Rental Website</li>
+                <li>Property/Holiday Rental Website</li>
+                <li>Personal Blog Website</li>
+                <li>Holiday Booking Website</li>
+                <li>Training Booking Website</li>
+                <li>Appointment Booking Website</li>
+                <li>Donation Website</li>
+                <li>Crowd Funding Website</li>
+                <li>Business Directory Website</li>
+                <li>Catalog Website</li>
+                <li>Auction Website</li>
+                <li>Classifieds Website</li>
+                <li>Many More</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
