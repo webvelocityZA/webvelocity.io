@@ -1,119 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Open App</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
 
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+      }
 
-        .button {
-            background-color: #0095f6;
-            color: white;
-            padding: 16px 32px;
-            border-radius: 8px;
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            max-width: 300px;
-            transition: background-color 0.2s;
-        }
+      .button {
+        background-color: #0095f6;
+        color: white;
+        padding: 16px 32px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        max-width: 300px;
+        transition: background-color 0.2s;
+      }
 
-        .button:hover {
-            background-color: #0081d6;
-        }
+      .button:hover {
+        background-color: #0081d6;
+      }
 
-        .fallback-message {
-            margin-top: 15px;
-            color: #666;
-            font-size: 14px;
-        }
+      .fallback-message {
+        margin-top: 15px;
+        color: #666;
+        font-size: 14px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <button onclick="openApp()" class="button">Open Instagram</button>
-        <p id="fallbackMessage" class="fallback-message"></p>
+      <button onclick="openApp()" class="button">Open Instagram</button>
+      <p id="fallbackMessage" class="fallback-message"></p>
     </div>
 
     <script>
-        function openApp() {
-            // Instagram's URL scheme
-            const appScheme = 'instagram://app';
-            
-            // Store URLs
-            const storeUrls = {
-                ios: 'https://apps.apple.com/app/instagram/id389801252',
-                android: 'https://play.google.com/store/apps/details?id=com.instagram.android',
-                fallback: 'https://instagram.com'
-            };
+      function openApp() {
+        // Instagram's URL scheme
+        const appScheme = "gemsmember://app";
 
-            // Detect platform
-            const ua = navigator.userAgent.toLowerCase();
-            const isIOS = /iphone|ipad|ipod/.test(ua);
-            const isAndroid = /android/.test(ua);
-            
-            // Try to open app
-            window.location.href = appScheme;
+        // Store URLs
+        const storeUrls = {
+          android:
+            "https://play.google.com/store/apps/details?id=za.gov.GEMS.Member",
+          ios: "https://apps.apple.com/za/app/gems-member/id1143528073", // Update with actual App Store URL
+          fallback: "https://www.gems.gov.za",
+        };
 
-            // Set timeout for fallback
-            setTimeout(() => {
-                // If page is still visible, app wasn't opened
-                if (!document.hidden) {
-                    if (isIOS) {
-                        window.location.href = storeUrls.ios;
-                    } else if (isAndroid) {
-                        window.location.href = storeUrls.android;
-                    } else {
-                        window.location.href = storeUrls.fallback;
-                    }
-                }
-            }, 2500);
-        }
+        // Detect platform
+        const ua = navigator.userAgent.toLowerCase();
+        const isIOS = /iphone|ipad|ipod/.test(ua);
+        const isAndroid = /android/.test(ua);
 
-        // Test URLs separately if needed
-        function testUrls() {
-            console.log('Testing URLs...');
-            
-            // List of common app schemes to try
-            const schemes = [
-                'instagram://',
-                'instagram://app',
-                'instagram://user?username=instagram'
-            ];
-            
-            schemes.forEach(scheme => {
-                console.log(`Testing scheme: ${scheme}`);
-                // You can uncomment the line below to test each scheme
-                // window.location.href = scheme;
-            });
-        }
+        // Try to open app
+        window.location.href = appScheme;
+
+        // Set timeout for fallback
+        setTimeout(() => {
+          // If page is still visible, app wasn't opened
+          if (!document.hidden) {
+            if (isIOS) {
+              window.location.href = storeUrls.ios;
+            } else if (isAndroid) {
+              window.location.href = storeUrls.android;
+            } else {
+              window.location.href = storeUrls.fallback;
+            }
+          }
+        }, 2500);
+      }
+
     </script>
-</body>
+  </body>
 </html>
