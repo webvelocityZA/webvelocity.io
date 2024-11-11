@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open GEMS Member App</title>
+    <style>
+      .button {
+        padding: 15px 30px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 20px;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="openGEMSApp()" class="button">Open GEMS Member App</button>
+
+    <script>
+      function openGEMSApp() {
+        // Default Capacitor scheme using the app ID
+        const appScheme = "za.gov.GEMS.Member://app";
+
+        // Alternative custom scheme if configured
+        const alternativeScheme = "gemsmember://app";
+
+        // Store URLs for fallback
+        const playStoreUrl =
+          "https://play.google.com/store/apps/details?id=za.gov.GEMS.Member";
+        const appStoreUrl = "https://apps.apple.com/app/za.gov.GEMS.Member"; // Replace with actual App Store URL
+
+        // Fallback website URL
+        const webFallback = "https://www.gems.gov.za"; // Replace with actual website
+
+        // Detect platform
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isAndroid = /android/.test(userAgent);
+        const isIOS = /iphone|ipad|ipod/.test(userAgent);
+
+        // Try to open app
+        const openApp = () => {
+          const startTime = Date.now();
+          const fallbackTimeout = 2000; // 2 seconds
+
+          // Try to open the app with primary scheme
+          window.location.href = appScheme;
+
+          // Set timeout for fallback
+          setTimeout(() => {
+            // If page is still visible after timeout, try alternative scheme
+            if (!document.hidden) {
+              window.location.href = alternativeScheme;
+
+              // Set another timeout for store fallback
+              setTimeout(() => {
+                if (
+                  !document.hidden &&
+                  Date.now() - startTime < fallbackTimeout + 100
+                ) {
+                  // If still here, redirect to appropriate store
+                  if (isAndroid) {
+                    window.location.href = playStoreUrl;
+                  } else if (isIOS) {
+                    window.location.href = appStoreUrl;
+                  } else {
+                    window.location.href = webFallback;
+                  }
+                }
+              }, fallbackTimeout);
+            }
+          }, fallbackTimeout);
+        };
+
+        // Handle visibility change
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            // App was successfully opened
+            console.log("GEMS Member app opened successfully");
+          }
+        });
+
+        // Start the process
+        openApp();
+      }
+    </script>
+  </body>
+</html>
