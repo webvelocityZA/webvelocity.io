@@ -1,104 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open App</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
-      }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
 
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #f5f5f5;
-        padding: 20px;
-      }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
 
-      .container {
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        max-width: 500px;
-        width: 100%;
-        text-align: center;
-      }
+        .section {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
 
-      .button {
-        background-color: #0095f6;
-        color: white;
-        padding: 16px 32px;
-        border-radius: 8px;
-        border: none;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        width: 100%;
-        max-width: 300px;
-        transition: background-color 0.2s;
-      }
+        h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
 
-      .button:hover {
-        background-color: #0081d6;
-      }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
 
-      .fallback-message {
-        margin-top: 15px;
-        color: #666;
-        font-size: 14px;
-      }
+        button:hover {
+            background: #0056b3;
+        }
+
+        .test-button {
+            background: #34C759;
+        }
+
+        .gems-button {
+            background: #007AFF;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <button onclick="openApp()" class="button">Open GEMS App</button>
-      <p id="fallbackMessage" class="fallback-message"></p>
+        <!-- Test section for known working apps -->
+        <div class="section">
+            <h2>Test Known Working Apps</h2>
+            <button class="test-button" onclick="openURL('instagram://')">Open Instagram</button>
+            <button class="test-button" onclick="openURL('whatsapp://')">Open WhatsApp</button>
+            <button class="test-button" onclick="openURL('fb://')">Open Facebook</button>
+        </div>
+
+        <!-- GEMS App trials -->
+        <div class="section">
+            <h2>Try GEMS App Variations</h2>
+            <button class="gems-button" onclick="openURL('gems://')">Try gems://</button>
+            <button class="gems-button" onclick="openURL('za.gov.gems.member://')">Try za.gov.gems.member://</button>
+            <button class="gems-button" onclick="openURL('gemsmember://')">Try gemsmember://</button>
+            <button class="gems-button" onclick="openURL('gems://app')">Try gems://app</button>
+            <button class="gems-button" onclick="openURL('za.gov.gems.member://app')">Try za.gov.gems.member://app</button>
+            <div id="result" class="result"></div>
+        </div>
     </div>
 
     <script>
-      function openApp() {
-        // Instagram's URL scheme
-        const appScheme = "za.gov.GEMS.Member://app";
-
-        // Store URLs
-        const storeUrls = {
-          android:
-            "https://play.google.com/store/apps/details?id=za.gov.GEMS.Member",
-          ios: "https://apps.apple.com/za/app/gems-member/id1143528073", // Update with actual App Store URL
-          fallback: "https://www.gems.gov.za",
-        };
+        function openURL(scheme) {
+            // Show which scheme we're trying
+            document.getElementById('result').textContent = `Trying scheme: ${scheme}`;
+            
+            // For iOS Safari
+            window.location.replace(scheme);
+            
+            // Fallback after timeout
+            setTimeout(function() {
+                document.getElementById('result').textContent = 'Opening App Store...';
+                // If still here, go to store
+                window.location.replace('https://apps.apple.com/za/app/gems-member/id1445622468');
+            }, 2500);
+        }
 
         // Detect platform
-        const ua = navigator.userAgent.toLowerCase();
-        const isIOS = /iphone|ipad|ipod/.test(ua);
-        const isAndroid = /android/.test(ua);
-
-        // Try to open app
-        window.location.href = appScheme;
-
-        // Set timeout for fallback
-        setTimeout(() => {
-          // If page is still visible, app wasn't opened
-          if (!document.hidden) {
-            if (isIOS) {
-              window.location.href = storeUrls.ios;
-            } else if (isAndroid) {
-              window.location.href = storeUrls.android;
-            } else {
-              window.location.href = storeUrls.fallback;
-            }
-          }
-        }, 2500);
-      }
-
+        document.addEventListener('DOMContentLoaded', function() {
+            const ua = navigator.userAgent.toLowerCase();
+            const isIOS = /iphone|ipad|ipod/.test(ua);
+            const isAndroid = /android/.test(ua);
+            
+            let platform = 'desktop';
+            if (isIOS) platform = 'iOS';
+            if (isAndroid) platform = 'Android';
+            
+            document.getElementById('result').textContent = `Detected platform: ${platform}`;
+        });
     </script>
-  </body>
+</body>
 </html>
