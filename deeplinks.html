@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open App</title>
+    <title>Open App with Parameters</title>
     <style>
         body {
             display: flex;
@@ -15,7 +15,6 @@
             background: #f5f5f5;
             padding: 20px;
         }
-
         .container {
             background: white;
             padding: 20px;
@@ -24,19 +23,16 @@
             width: 100%;
             max-width: 500px;
         }
-
         .section {
             margin-bottom: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
-
         h2 {
             color: #333;
             font-size: 18px;
             margin-bottom: 15px;
         }
-
         button {
             padding: 12px 20px;
             font-size: 16px;
@@ -49,19 +45,23 @@
             width: 100%;
             transition: background-color 0.2s;
         }
-
         button:hover {
             background: #0056b3;
         }
-
         .test-button {
             background: #34C759;
         }
-
         .gems-button {
             background: #007AFF;
         }
-
+        .param-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
         .result {
             margin-top: 10px;
             font-size: 14px;
@@ -78,18 +78,23 @@
             <button class="test-button" onclick="openURL('whatsapp://')">Open WhatsApp</button>
             <button class="test-button" onclick="openURL('fb://')">Open Facebook</button>
         </div>
-
-        <!-- GEMS App trials -->
+        <!-- GEMS App with parameters -->
         <div class="section">
-            <h2>Try GEMS App Variations</h2>
-            <button class="gems-button" onclick="openURL('gemsmember://')">Try gemsmember://</button>
+            <h2>GEMS App with Parameters</h2>
+            <button class="gems-button" onclick="openGemsWithParams()">Open GEMS with Parameters</button>
+            <button class="gems-button" onclick="openURL('gemsmember://')">Try Basic gemsmember://</button>
             <div id="result" class="result"></div>
         </div>
-    </div>
 
+        <!-- Quick Links -->
+        <div class="section">
+            <h2>Quick Parameter Examples</h2>
+            <button class="gems-button" onclick="openGemsWithPresetParams('page', 'profile')">Open Profile Page</button>
+            <button class="gems-button" onclick="openGemsWithPresetParams('action', 'settings')">Open Settings</button>
+        </div>
+    </div>
     <script>
         function openURL(scheme) {
-            // Show which scheme we're trying
             document.getElementById('result').textContent = `Trying scheme: ${scheme}`;
             
             // For iOS Safari
@@ -98,9 +103,28 @@
             // Fallback after timeout
             setTimeout(function() {
                 document.getElementById('result').textContent = 'Opening App Store...';
-                // If still here, go to store
                 window.location.replace('https://apps.apple.com/za/app/gems-member/id1445622468');
             }, 2500);
+        }
+
+        function openGemsWithParams() {
+            const key = "to";
+            const value = "smartsms&utm_source=sms&utm_medium=web";
+            
+            if (!key || !value) {
+                document.getElementById('result').textContent = 'Please enter both key and value';
+                return;
+            }
+
+            const scheme = `gemsmember://?${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+            document.getElementById('result').textContent = `Trying scheme: ${scheme}`;
+            openURL(scheme);
+        }
+
+        function openGemsWithPresetParams(key, value) {
+            const scheme = `gemsmember://?${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+            document.getElementById('result').textContent = `Trying scheme: ${scheme}`;
+            openURL(scheme);
         }
 
         // Detect platform
